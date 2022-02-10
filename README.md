@@ -1,3 +1,3 @@
-# MERN Backend
+# Inventory App API
 
-This is a basic backend Express app to be used with the MERN stack.
+This is an API built on Express designed to explore the MERN stack.
