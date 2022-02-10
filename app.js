@@ -12,7 +12,8 @@ async function Main(){
     app.use(express.urlencoded({ extended: true }));
     app.use(cookieParser());
 
-    app.use('/', require('./routes/api'));
+    app.use('/auth', require('./routes/auth'));
+    app.use('/api', require('./routes/api'));
 
     app.listen(process.env.PORT, () => { 
         console.log(`Server started on port ${process.env.PORT}`);

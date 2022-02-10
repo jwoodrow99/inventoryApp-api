@@ -1,5 +1,10 @@
 const router = require('express').Router();
 
+// Middleware
+const AuthMiddleware = require('../middleware/AuthMiddleware');
+
+router.use(AuthMiddleware);
+
 // Controllers
 const ItemController = require('../controllers/ItemController');
 const TransactionController = require('../controllers/transactionController');
