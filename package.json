@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "console.log('test')"
+    "start": "node boot.js",
+    "dev": "nodemon boot.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,8 @@
     "mongoose": "^6.2.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }
