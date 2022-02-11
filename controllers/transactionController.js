@@ -4,6 +4,8 @@ const Items = require('../models/Items');
 // Read
 async function index(req, res, next) {
 
+  console.log(req.user);
+
   const all = await Transactions.find();
 
   res.status(200).json({
