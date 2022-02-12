@@ -8,6 +8,9 @@ async function login(req, res, next) {
     const user = await Users.findOne({employee_id: req.body.employee_id});
     const verify = bcrypt.compareSync(req.body.password, user.password);
 
+    const userTransactions = await user.transactions();
+    //const userTransactions = await Transactions.find({employee_id: user.employee_id});
+
     if(verify){
         const token = jwt.sign({user: user}, process.env.TOKEN_SECRET);
 
