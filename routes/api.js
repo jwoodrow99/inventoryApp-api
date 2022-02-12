@@ -13,7 +13,7 @@ router.post('/login', AuthController.login);
 router.post('/newuser', AuthMiddleware, AuthController.newUser);
 
 // Item routes
-router.get('/item', AuthMiddleware(), ItemController.index);
+router.get('/item', AuthMiddleware, ItemController.index);
 router.post('/item', AuthMiddleware, ItemController.create);
 router.patch('/item', AuthMiddleware, ItemController.update);
 router.put('/item', AuthMiddleware, ItemController.update);
