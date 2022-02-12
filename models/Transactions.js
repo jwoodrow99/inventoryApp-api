@@ -13,7 +13,9 @@ const TransactionSchema = new mongoose.Schema({
 });
 
 TransactionSchema.methods.user = async function(){
-    return await Users.findOne({employee_id: this.employee_id});
+    return await Users.findOne({
+        employee_id: this.employee_id
+    });
 }
 
 module.exports = mongoose.model('transactions', TransactionSchema);

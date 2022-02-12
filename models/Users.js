@@ -9,7 +9,9 @@ const UsersSchema = new mongoose.Schema({
 });
 
 UsersSchema.methods.transactions = async function(){
-    return await Transactions.find({employee_id: this.employee_id});
+    return await Transactions.find({
+        employee_id: this.employee_id
+    });
 }
 
 module.exports = mongoose.model('users', UsersSchema);

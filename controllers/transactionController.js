@@ -17,7 +17,15 @@ async function index(req, res, next) {
 // Create
 async function create(req, res, next) {
 
+  let total = 0;
+
+  // loop over each item in request
   req.body.items.forEach(async el => {
+
+    // add to total price
+    total += el.unit_price * el.quantity;
+
+    // Finding item in items table, and reduicing quantity
     let item = await Items.findById(el.item_id);
     await item.updateOne({
       quantity: item.quantity - el.quantity
@@ -25,7 +33,11 @@ async function create(req, res, next) {
   });
 
   // Created our new item
-  const newTransaction = new Transactions(req.body);
+  const newTransaction = new Transactions({
+    total: total,
+    employee_id: req.user.employee_id,
+    items: req.body.items
+  });
 
   // Saving the new item to DB
   await newTransaction.save();
