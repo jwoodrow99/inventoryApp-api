@@ -33,7 +33,7 @@ async function create(req, res, next) {
 async function update(req, res, next) {
 
   let item = await Items.findById(req.query.id);
-  let afterUpdate = await item.update(req.body);
+  let afterUpdate = await item.updateOne(req.body);
 
   res.status(200).json({
     message: 'Item was updated.'
