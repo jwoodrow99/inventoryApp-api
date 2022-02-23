@@ -14,7 +14,7 @@ router.post('/login', AuthController.login);
 router.post('/newuser', AuthMiddleware(), RoleMiddleware(['manager']), AuthController.newUser);
 
 // Item routes
-router.get('/item', AuthMiddleware(), RoleMiddleware(['manager', 'stock']), ItemController.index);
+router.get('/item', AuthMiddleware(), RoleMiddleware(['manager', 'stock']), ItemController.index); 
 router.post('/item', AuthMiddleware(), RoleMiddleware(['manager', 'stock']), ItemController.create);
 router.patch('/item', AuthMiddleware(), RoleMiddleware(['manager', 'stock']), ItemController.update);
 router.put('/item', AuthMiddleware(), RoleMiddleware(['manager', 'stock']), ItemController.update);

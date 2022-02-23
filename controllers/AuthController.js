@@ -13,7 +13,11 @@ async function login(req, res, next) {
 
         res.status(200).json({
             message: 'You are verified.',
-            token: token
+            token: token,
+            user: {
+                employee_id: user.employee_id,
+                roles: user.roles
+            }
         });
     } else {
         res.status(401).json({
